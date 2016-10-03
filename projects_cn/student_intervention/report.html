@@ -11801,7 +11801,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[169]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 载入所需要的库</span>
@@ -11854,15 +11854,14 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[170]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO： 计算学生的数量</span>
 <span class="n">n_students</span> <span class="o">=</span> <span class="n">student_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="c1"># TODO： 计算特征数量</span>
-<span class="n">n_features</span> <span class="o">=</span> <span class="n">student_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-
+<span class="n">n_features</span> <span class="o">=</span> <span class="n">student_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span>
 <span class="c1"># TODO： 计算通过的学生数</span>
 <span class="n">n_passed</span> <span class="o">=</span> <span class="n">student_data</span><span class="p">[</span><span class="n">student_data</span><span class="p">[</span><span class="s1">&#39;passed&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;yes&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
@@ -11870,7 +11869,7 @@ div#notebook {
 <span class="n">n_failed</span> <span class="o">=</span> <span class="n">student_data</span><span class="p">[</span><span class="n">student_data</span><span class="p">[</span><span class="s1">&#39;passed&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;no&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="c1"># TODO： 计算通过率</span>
-<span class="n">grad_rate</span> <span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">n_passed</span><span class="p">)</span><span class="o">/</span><span class="n">n_students</span>
+<span class="n">grad_rate</span> <span class="o">=</span><span class="n">n_passed</span><span class="o">*</span><span class="mf">100.0</span><span class="o">/</span><span class="n">n_students</span>
 
 <span class="c1"># 输出结果</span>
 <span class="k">print</span> <span class="s2">&quot;Total number of students: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_students</span><span class="p">)</span>
@@ -11891,10 +11890,10 @@ div#notebook {
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Total number of students: 395
-Number of features: 31
+Number of features: 30
 Number of students who passed: 265
 Number of students who failed: 130
-Graduation rate of the class: 0.67%
+Graduation rate of the class: 67.09%
 </pre>
 </div>
 </div>
@@ -11917,7 +11916,7 @@ Graduation rate of the class: 0.67%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[171]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 提取特征列</span>
@@ -11999,7 +11998,7 @@ Feature values:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[172]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">preprocess_features</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
@@ -12070,7 +12069,7 @@ Feature values:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[173]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO：在这里导入你可能需要使用的另外的功能</span>
@@ -12082,7 +12081,7 @@ Feature values:
 <span class="n">num_test</span> <span class="o">=</span> <span class="n">X_all</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">num_train</span>
 
 <span class="c1"># TODO：把数据集混洗和分割成上面定义的训练集和测试集</span>
-<span class="n">X_train</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_train</span><span class="p">,</span><span class="n">y_test</span><span class="o">=</span><span class="n">train_test_split</span><span class="p">(</span><span class="n">X_all</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">X_all</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])],</span> <span class="n">y_all</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="n">num_test</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_train</span><span class="p">,</span><span class="n">y_test</span><span class="o">=</span><span class="n">train_test_split</span><span class="p">(</span><span class="n">X_all</span><span class="p">,</span> <span class="n">y_all</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="n">num_test</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 <span class="c1"># 显示分割的结果</span>
 <span class="k">print</span> <span class="s2">&quot;Training set has {} samples.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="k">print</span> <span class="s2">&quot;Testing set has {} samples.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -12154,15 +12153,18 @@ Testing set has 95 samples.
 <li>朴素贝叶斯
 应用场景：根据客户名字预测性别
 优势：训练简单，在大规模数据上训练，有良好的性能优势
-缺点：假定特征是相互独立的，如果特征内在联系紧密，对预测结果有不好的影响</li>
+缺点：假定特征是相互独立的，如果特征内在联系紧密，对预测结果有不好的影响
+选取原因：预测结果可以用概率模型，特征基本相互独立，数据集有先验概率，根据先验概率得出后验概率。</li>
 <li>决策树
 应用场景：投资风险决策与评估
-优势：训练简单
-缺点：特征多的时候容易产生过拟合，树的层数和每个节点个数不同场景需要单独优化</li>
+优势：训练简单,时间空间消耗小
+缺点：特征多的时候容易产生过拟合，树的层数和每个节点个数不同场景需要单独优化
+选取原因：当前数据集数据量很小，特征基本都是分类数据，可以作为节点</li>
 <li>svm向量模型
 应用场景：手写字体识别
 优势：小样本有优秀的泛化能力
-缺点：时间和空间消耗比较大，不利于大样本的训练和预测</li>
+缺点：时间和空间消耗比较大，不利于大样本的训练和预测
+选取原因：当前数据集数据量很小，基本都是分类数据，非连续性，分类数据是二值分类问题（binary classification）</li>
 </ul>
 
 </div>
@@ -12188,7 +12190,7 @@ Testing set has 95 samples.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[174]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">train_classifier</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">):</span>
@@ -12261,7 +12263,7 @@ Testing set has 95 samples.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[183]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO：从sklearn中引入三个监督学习模型</span>
@@ -12285,15 +12287,10 @@ Testing set has 95 samples.
 <span class="n">y_train_300</span> <span class="o">=</span> <span class="n">y_train</span><span class="p">[:</span><span class="mi">300</span><span class="p">]</span>
 
 <span class="c1"># TODO：对每一个分类器和每一个训练集大小运行&#39;train_predict&#39;</span>
-<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_A</span><span class="p">,</span> <span class="n">X_train_100</span><span class="p">,</span> <span class="n">y_train_100</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_B</span><span class="p">,</span> <span class="n">X_train_100</span><span class="p">,</span> <span class="n">y_train_100</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_C</span><span class="p">,</span> <span class="n">X_train_100</span><span class="p">,</span> <span class="n">y_train_100</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_A</span><span class="p">,</span> <span class="n">X_train_200</span><span class="p">,</span> <span class="n">y_train_200</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_B</span><span class="p">,</span> <span class="n">X_train_200</span><span class="p">,</span> <span class="n">y_train_200</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_C</span><span class="p">,</span> <span class="n">X_train_200</span><span class="p">,</span> <span class="n">y_train_200</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_A</span><span class="p">,</span> <span class="n">X_train_300</span><span class="p">,</span> <span class="n">y_train_300</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_B</span><span class="p">,</span> <span class="n">X_train_300</span><span class="p">,</span> <span class="n">y_train_300</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_C</span><span class="p">,</span> <span class="n">X_train_300</span><span class="p">,</span> <span class="n">y_train_300</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">clf</span> <span class="ow">in</span> <span class="p">[</span><span class="n">clf_A</span><span class="p">,</span> <span class="n">clf_B</span><span class="p">,</span> <span class="n">clf_C</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">size</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">]:</span>
+        <span class="n">train_predict</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">[:</span><span class="n">size</span><span class="p">],</span> <span class="n">y_train</span><span class="p">[:</span><span class="n">size</span><span class="p">],</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
 </pre></div>
 
 </div>
@@ -12307,59 +12304,77 @@ Testing set has 95 samples.
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Training a GaussianNB using a training set size of 100. . .
-Trained model in 0.0015 seconds
-Made predictions in 0.0006 seconds.
-F1 score for training set: 0.8333.
-Made predictions in 0.0004 seconds.
-F1 score for test set: 0.7313.
-Training a DecisionTreeClassifier using a training set size of 100. . .
-Trained model in 0.0009 seconds
+Trained model in 0.0018 seconds
+Made predictions in 0.0008 seconds.
+F1 score for training set: 0.8467.
 Made predictions in 0.0003 seconds.
-F1 score for training set: 1.0000.
-Made predictions in 0.0002 seconds.
-F1 score for test set: 0.6825.
-Training a SVC using a training set size of 100. . .
-Trained model in 0.0012 seconds
-Made predictions in 0.0011 seconds.
-F1 score for training set: 0.8075.
-Made predictions in 0.0013 seconds.
-F1 score for test set: 0.8101.
+F1 score for test set: 0.8029.
+
+
 Training a GaussianNB using a training set size of 200. . .
-Trained model in 0.0011 seconds
-Made predictions in 0.0004 seconds.
-F1 score for training set: 0.3190.
-Made predictions in 0.0005 seconds.
-F1 score for test set: 0.2564.
-Training a DecisionTreeClassifier using a training set size of 200. . .
-Trained model in 0.0021 seconds
-Made predictions in 0.0004 seconds.
-F1 score for training set: 1.0000.
-Made predictions in 0.0002 seconds.
-F1 score for test set: 0.6829.
-Training a SVC using a training set size of 200. . .
-Trained model in 0.0033 seconds
-Made predictions in 0.0023 seconds.
-F1 score for training set: 0.8428.
-Made predictions in 0.0013 seconds.
-F1 score for test set: 0.8182.
+Trained model in 0.0008 seconds
+Made predictions in 0.0003 seconds.
+F1 score for training set: 0.8406.
+Made predictions in 0.0003 seconds.
+F1 score for test set: 0.7244.
+
+
 Training a GaussianNB using a training set size of 300. . .
-Trained model in 0.0012 seconds
-Made predictions in 0.0005 seconds.
-F1 score for training set: 0.7870.
+Trained model in 0.0010 seconds
+Made predictions in 0.0004 seconds.
+F1 score for training set: 0.8038.
 Made predictions in 0.0003 seconds.
-F1 score for test set: 0.7188.
-Training a DecisionTreeClassifier using a training set size of 300. . .
-Trained model in 0.0017 seconds
-Made predictions in 0.0002 seconds.
+F1 score for test set: 0.7634.
+
+
+Training a DecisionTreeClassifier using a training set size of 100. . .
+Trained model in 0.0023 seconds
+Made predictions in 0.0008 seconds.
 F1 score for training set: 1.0000.
 Made predictions in 0.0003 seconds.
-F1 score for test set: 0.6429.
+F1 score for test set: 0.6552.
+
+
+Training a DecisionTreeClassifier using a training set size of 200. . .
+Trained model in 0.0029 seconds
+Made predictions in 0.0005 seconds.
+F1 score for training set: 1.0000.
+Made predictions in 0.0005 seconds.
+F1 score for test set: 0.7500.
+
+
+Training a DecisionTreeClassifier using a training set size of 300. . .
+Trained model in 0.0028 seconds
+Made predictions in 0.0004 seconds.
+F1 score for training set: 1.0000.
+Made predictions in 0.0003 seconds.
+F1 score for test set: 0.6613.
+
+
+Training a SVC using a training set size of 100. . .
+Trained model in 0.0013 seconds
+Made predictions in 0.0011 seconds.
+F1 score for training set: 0.8777.
+Made predictions in 0.0008 seconds.
+F1 score for test set: 0.7746.
+
+
+Training a SVC using a training set size of 200. . .
+Trained model in 0.0032 seconds
+Made predictions in 0.0023 seconds.
+F1 score for training set: 0.8679.
+Made predictions in 0.0015 seconds.
+F1 score for test set: 0.7815.
+
+
 Training a SVC using a training set size of 300. . .
-Trained model in 0.0079 seconds
-Made predictions in 0.0063 seconds.
-F1 score for training set: 0.8457.
-Made predictions in 0.0016 seconds.
-F1 score for test set: 0.8289.
+Trained model in 0.0072 seconds
+Made predictions in 0.0050 seconds.
+F1 score for training set: 0.8761.
+Made predictions in 0.0020 seconds.
+F1 score for test set: 0.7838.
+
+
 </pre>
 </div>
 </div>
@@ -12396,24 +12411,24 @@ F1 score for test set: 0.8289.
 <tbody>
 <tr>
 <td style="text-align:center">100</td>
-<td style="text-align:center">0.0015</td>
-<td style="text-align:center">0.0006</td>
-<td style="text-align:center">0.8333</td>
-<td style="text-align:center">0.7313</td>
+<td style="text-align:center">0.0018</td>
+<td style="text-align:center">0.0008</td>
+<td style="text-align:center">0.8467</td>
+<td style="text-align:center">0.8029</td>
 </tr>
 <tr>
 <td style="text-align:center">200</td>
-<td style="text-align:center">0.0011</td>
-<td style="text-align:center">0.0004</td>
-<td style="text-align:center">0.3190</td>
+<td style="text-align:center">0.0008</td>
+<td style="text-align:center">0.0003</td>
+<td style="text-align:center">0.8406</td>
 <td style="text-align:center">0.2564</td>
 </tr>
 <tr>
 <td style="text-align:center">300</td>
-<td style="text-align:center">0.0012</td>
-<td style="text-align:center">0.0015</td>
-<td style="text-align:center">0.7870</td>
-<td style="text-align:center">0.7188</td>
+<td style="text-align:center">0.0010</td>
+<td style="text-align:center">0.0004</td>
+<td style="text-align:center">0.8038</td>
+<td style="text-align:center">0.7634</td>
 </tr>
 </tbody>
 </table>
@@ -12430,24 +12445,24 @@ F1 score for test set: 0.8289.
 <tbody>
 <tr>
 <td style="text-align:center">100</td>
-<td style="text-align:center">0.0009</td>
-<td style="text-align:center">0.0003</td>
+<td style="text-align:center">0.0023</td>
+<td style="text-align:center">0.0008</td>
 <td style="text-align:center">1.0000</td>
-<td style="text-align:center">0.6825</td>
+<td style="text-align:center">0.6552</td>
 </tr>
 <tr>
 <td style="text-align:center">200</td>
-<td style="text-align:center">0.0021</td>
-<td style="text-align:center">0.0004</td>
+<td style="text-align:center">0.0029</td>
+<td style="text-align:center">0.0005</td>
 <td style="text-align:center">1.0000</td>
-<td style="text-align:center">0.6829</td>
+<td style="text-align:center">0.7500</td>
 </tr>
 <tr>
 <td style="text-align:center">300</td>
-<td style="text-align:center">0.0017</td>
-<td style="text-align:center">0.0002</td>
+<td style="text-align:center">0.0028</td>
+<td style="text-align:center">0.0004</td>
 <td style="text-align:center">1.0000</td>
-<td style="text-align:center">0.6429</td>
+<td style="text-align:center">0.6613</td>
 </tr>
 </tbody>
 </table>
@@ -12464,24 +12479,24 @@ F1 score for test set: 0.8289.
 <tbody>
 <tr>
 <td style="text-align:center">100</td>
-<td style="text-align:center">0.0012</td>
+<td style="text-align:center">0.0013</td>
 <td style="text-align:center">0.0011</td>
-<td style="text-align:center">0.8075</td>
-<td style="text-align:center">0.8101</td>
+<td style="text-align:center">0.8777</td>
+<td style="text-align:center">0.7746</td>
 </tr>
 <tr>
 <td style="text-align:center">200</td>
-<td style="text-align:center">0.0033</td>
+<td style="text-align:center">0.0032</td>
 <td style="text-align:center">0.0023</td>
-<td style="text-align:center">0.8428</td>
-<td style="text-align:center">0.8182</td>
+<td style="text-align:center">0.8679</td>
+<td style="text-align:center">0.7815</td>
 </tr>
 <tr>
 <td style="text-align:center">300</td>
-<td style="text-align:center">0.0079</td>
-<td style="text-align:center">0.0063</td>
-<td style="text-align:center">0.8457</td>
-<td style="text-align:center">0.8289</td>
+<td style="text-align:center">0.0072</td>
+<td style="text-align:center">0.0050</td>
+<td style="text-align:center">0.8761</td>
+<td style="text-align:center">0.7838</td>
 </tr>
 </tbody>
 </table>
@@ -12505,17 +12520,8 @@ F1 score for test set: 0.8289.
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#38382;&#39064;-3---&#36873;&#25321;&#26368;&#20339;&#27169;&#22411;">&#38382;&#39064; 3 - &#36873;&#25321;&#26368;&#20339;&#27169;&#22411;<a class="anchor-link" href="#&#38382;&#39064;-3---&#36873;&#25321;&#26368;&#20339;&#27169;&#22411;">&#182;</a></h3><p><em>给予你上面做的实验，用一到两段话，向（学校）监事会解释你将选择哪个模型作为最佳的模型。哪个模型在现有的数据，有限的资源、开支和模型表现综合来看是最好的选择？</em></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>回答: </strong>
-最佳模型是决策树，训练时间和预测时间时间相对较低，F1测试的值虽然有点低，是过拟合的问题（F1训练值始终是1），经过参数调优，可以达到要求。</p>
+朴素贝叶斯模型在时间和空间的消耗上表现良好，训练F1值不够好，测试F1值受测试数据的影响较大，泛化能力差。SVM分类器训练和测试时间消耗比较大，随着样本数据的增加，资源消耗比较大。所以决策树模型是最好的模型，在训练时间和测试时间有很好的性能，F1训练值和数据吻合比较好（可能过拟合），虽然F1测试值偏低，但是经过测试调整和优化，F1测试值能够达到良好的效果。</p>
 
 </div>
 </div>
@@ -12536,7 +12542,8 @@ F1 score for test set: 0.8289.
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>回答: </strong>
-根据一些同学的特点，作为一个问题归类，比如，性别，年龄，自由时间，缺课情况，健康状况，是否获得奖学金等，根据问答形式，看一下是否可以毕业。通过大量的问卷调查，可以统计出毕业的同学有些特征问题，无法毕业的特征，根据经验特征，可以预测出一个未毕业的同学是否可以毕业。</p>
+样本之间的混乱和有序性可以用信息熵标示，当熵的值越大，表示越混乱，需要分割归类，当熵的值越小，标示数据有序，可以归为一类，无需再分
+模型训练的第一步是找到样本中信息熵最大的特征，作为第一个分类的节点，比如falures &lt; 0.5,把样本分成两部分part1（falures &lt; 0.5）和part2（falures &gt;= 0.5），再在2部分样本中选取信息熵最大的特征，作为下一个分类的节点，在part1中选取sex_M，在part2中选取studytime,一直到样本信息熵的值很小。训练出一个特征节点的模型，当有一个新的数据进行预测的时候，按照特征节点的条件，从上到下，找到归属的类别。</p>
 
 </div>
 </div>
@@ -12567,7 +12574,7 @@ F1 score for test set: 0.8289.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[191]:</div>
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: 导入 &#39;GridSearchCV&#39; 和 &#39;make_scorer&#39;</span>
@@ -12575,7 +12582,7 @@ F1 score for test set: 0.8289.
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
 
 <span class="c1"># TODO：创建你希望调整的参数列表</span>
-<span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span><span class="s1">&#39;min_samples_split&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="s1">&#39;criterion&#39;</span><span class="p">:[</span><span class="s1">&#39;gini&#39;</span><span class="p">,</span><span class="s1">&#39;entropy&#39;</span><span class="p">]}</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span><span class="s1">&#39;min_samples_split&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span><span class="s1">&#39;criterion&#39;</span><span class="p">:[</span><span class="s1">&#39;gini&#39;</span><span class="p">,</span><span class="s1">&#39;entropy&#39;</span><span class="p">],</span><span class="s1">&#39;splitter&#39;</span><span class="p">:[</span><span class="s1">&#39;best&#39;</span><span class="p">,</span><span class="s1">&#39;random&#39;</span><span class="p">]}</span>
 
 <span class="c1"># TODO：初始化分类器</span>
 <span class="n">clf</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">()</span>
@@ -12611,9 +12618,9 @@ F1 score for test set: 0.8289.
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Made predictions in 0.0002 seconds.
-Tuned model has a training F1 score of 0.8519.
+Tuned model has a training F1 score of 0.8315.
 Made predictions in 0.0002 seconds.
-Tuned model has a testing F1 score of 0.8029.
+Tuned model has a testing F1 score of 0.8321.
 </pre>
 </div>
 </div>
@@ -12638,7 +12645,7 @@ Tuned model has a testing F1 score of 0.8029.
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>回答: </strong>
-训练的F1值的是0.8519，测试F1的值是0.8029，比没有调整过参数的模型，F1的值有明显的提升，降低了过拟合的现象。</p>
+训练的F1值的是0.8315，测试F1的值是0.8321，比没有调整过参数的模型，F1的值有明显的提升，降低了过拟合的现象。</p>
 
 </div>
 </div>

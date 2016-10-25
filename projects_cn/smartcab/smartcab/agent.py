@@ -13,11 +13,9 @@ class LearningAgent(Agent):
         # TODO: Initialize any additional variables here
         self.q = {}
 	self.actions=env.valid_actions
-	self.alpha=0.2
-	self.gamma=0.7
-	self.epsilon =0.09 
-	self.action='None'
-	self.state=None
+	self.alpha=0.4
+	self.gamma=0.1
+	self.epsilon =0.1 
 	self.sucess=0;
 	self.testtimes=0;
 
@@ -30,7 +28,7 @@ class LearningAgent(Agent):
         self.next_waypoint = self.planner.next_waypoint()  # from route planner, also displayed by simulator
         inputs = self.env.sense(self)
         deadline = self.env.get_deadline(self)
-	
+
         # TODO: Update state
 	state=(self.next_waypoint,inputs['light'],inputs['oncoming'],inputs['left'])
 	q = [self.q.get((state, a),0.0) for a in self.actions]
@@ -47,15 +45,14 @@ class LearningAgent(Agent):
 		action = self.actions[i]
 	reward=self.env.act(self,action)
 
-	if self.state is not None:
-		self.q[(self.state,self.action)]=(1-self.alpha)*self.q.get((self.state,self.action),0.0)+self.alpha*(reward+self.gamma*max([self.q.get((state,a),0.0) for a in self.actions]))
+	new_inputs = self.env.sense(self)
+	next_state=(self.planner.next_waypoint(),new_inputs['light'],new_inputs['oncoming'],new_inputs['left'])
+	
+	self.q[(state,action)]=(1-self.alpha)*self.q.get((state,action),0.0)+self.alpha*(reward+self.gamma*max([self.q.get((next_state,a),0.0) for a in self.actions]))
 
-	inputs = self.env.sense(self)
-	self.action = action
-	self.state = (self.next_waypoint,inputs['light'],inputs['oncoming'],inputs['left'])
 	if self.env.done :
 		self.sucess+=1	
-        print "LearningAgent.update(): deadline = {}, inputs = {}, action = {}, reward = {}".format(deadline, inputs, action, reward)  # [debug]
+        #print "LearningAgent.update(): deadline = {}, inputs = {}, action = {}, reward = {}".format(deadline, inputs, action, reward)  # [debug]
 	if deadline<=0 or self.env.done:
 		print self.sucess,self.testtimes
 
@@ -69,7 +66,7 @@ def run():
     # NOTE: You can set enforce_deadline=False while debugging to allow longer trials
 
     # Now simulate it
-    sim = Simulator(e, update_delay=0.01, display=False)  # create simulator (uses pygame when display=True, if available)
+    sim = Simulator(e, update_delay=0.5, display=True)  # create simulator (uses pygame when display=True, if available)
     # NOTE: To speed up simulation, reduce update_delay and/or set display=False
 
     sim.run(n_trials=100)  # run for a specified number of trials

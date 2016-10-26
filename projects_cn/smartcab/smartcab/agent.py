@@ -49,7 +49,8 @@ class LearningAgent(Agent):
 	next_state=(self.planner.next_waypoint(),new_inputs['light'],new_inputs['oncoming'],new_inputs['left'])
 	
 	self.q[(state,action)]=(1-self.alpha)*self.q.get((state,action),0.0)+self.alpha*(reward+self.gamma*max([self.q.get((next_state,a),0.0) for a in self.actions]))
-
+	
+	self.state=next_state
 	if self.env.done :
 		self.sucess+=1	
         #print "LearningAgent.update(): deadline = {}, inputs = {}, action = {}, reward = {}".format(deadline, inputs, action, reward)  # [debug]
@@ -66,7 +67,7 @@ def run():
     # NOTE: You can set enforce_deadline=False while debugging to allow longer trials
 
     # Now simulate it
-    sim = Simulator(e, update_delay=0.5, display=True)  # create simulator (uses pygame when display=True, if available)
+    sim = Simulator(e, update_delay=0.01, display=False)  # create simulator (uses pygame when display=True, if available)
     # NOTE: To speed up simulation, reduce update_delay and/or set display=False
 
     sim.run(n_trials=100)  # run for a specified number of trials

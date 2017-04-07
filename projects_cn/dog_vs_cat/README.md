@@ -9,8 +9,8 @@ web
 https://www.kaggle.com/c/dogs-vs-cats/data
 模型训练大约25小时
 
-![](https://github.com/william-developer/machine-learning/tree/master/projects_cn/dog_vs_cat/image/1.png)  
-![](https://github.com/william-developer/machine-learning/tree/master/projects_cn/dog_vs_cat/image/2.png)  
+![image](https://github.com/william-developer/machine-learning/tree/master/projects_cn/dog_vs_cat/image/1.png)  
+![image](https://github.com/william-developer/machine-learning/tree/master/projects_cn/dog_vs_cat/image/2.png)  
 
 
 

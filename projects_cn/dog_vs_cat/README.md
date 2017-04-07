@@ -17,7 +17,8 @@
 
 
 ## 3.微信公众号
-* 微信公众号：涂象
+* 微信公众号：
+![](https://github.com/william-developer/machine-learning/blob/master/projects_cn/dog_vs_cat/image/tx.jpg)
 * 启动微信web服务：python main.py 80
 * 微信web框架：http://webpy.org/
 

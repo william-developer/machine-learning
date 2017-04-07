@@ -8,6 +8,7 @@ web
 数据集
 https://www.kaggle.com/c/dogs-vs-cats/data
 模型训练大约25小时
+![](https://github.com/william-developer/machine-learning/master/image/1.png)  
 
 
 

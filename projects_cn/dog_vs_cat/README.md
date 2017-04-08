@@ -13,8 +13,8 @@
 * 验证集：http://www.robots.ox.ac.uk/~vgg/data/pets/data/images.tar.gz
 * 模型训练时间：大约25小时，同一数据集上的准确率在91.34%，在验证集上的准确率在89.65%
 
-![](https://github.com/william-developer/machine-learning/blob/master/projects_cn/dog_vs_cat/image/1.png)  
 ![](https://github.com/william-developer/machine-learning/blob/master/projects_cn/dog_vs_cat/image/2.png)  
+![](https://github.com/william-developer/machine-learning/blob/master/projects_cn/dog_vs_cat/image/1.png)  
 
 
 ## 3.微信公众号

@@ -51,7 +51,7 @@ def predict(imgpath) :
     with graph.as_default():
         input1=m_resnet.predict(input_f1)
         #input2=m_xecpiton.predict(input_f2)
-    	input3=m.predict(input_f3)
+        input3=m.predict(input_f3)
         x_input=[]
         x_input.append(np.array(input1))
         #x_input.append(np.array(input2))
